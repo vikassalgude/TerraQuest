@@ -1,0 +1,72 @@
+show.ejs
+<!-- <% layout('/layouts/boilerplate')  %>
+   <div class="row mt-3">
+    <div class="col-8  offset-3">
+      <h1>Listings Details</h1>
+    </div>
+  <div class="card col-6 offset-3 show-card" >
+      <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+      
+  
+  <div class="card-body">
+    <p class="card-text">
+      <b><%=listing.title%></b>
+      <br>
+      <%=listing.description%> <br>
+      &#8377;<%=listing.price.toLocaleString("en-IN")%> <br>
+      <%=listing.location%> <br>
+      <%=listing.country%>
+    </p>
+  </div>
+  </div>
+  </div>
+  <br>
+  <div class="btns">
+    <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+    <form method="post" action="/listings/<%=listing._id%>?_method=DELETE">
+    <button class="btn btn-dark offset-5">Delete</button>
+  </form>
+  </div>
+
+
+
+</div> -->
+
+
+
+
+...........
+
+
+<% layout('/layouts/boilerplate')  %>
+
+<body>
+  <h3>All Listings</h3>
+  <!-- <form method="get" action="/listings/new">
+    <button>Create new listings</button>
+  </form> -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <%for(let listing of allListings){%>
+      <a href="/listings/<%=listing._id%>"class="listing-link" >
+      <div class="card col" >
+         <img src="<%=listing.image%>" class="card-img-top" alt="listing_id" style="height: 20rem;" >
+         <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+          <b><%=listing.title%>  </b><br>
+          
+          &#8377;<%= listing.price ? Number(listing.price).toLocaleString("en-IN") : "0" %> <br>
+
+           </p>
+        </div>
+      </div>
+      </a>
+    <%}%>
+
+  </div>
+
+</body>
+</html>
+...............
+ &#8377; <%= listing.price.toLocaleString("en-IN") %> / night  show
+
