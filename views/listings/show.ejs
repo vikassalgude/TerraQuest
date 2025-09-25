@@ -9,7 +9,7 @@
   <div class="card col-6 offset-3 show-card listing-card">
     <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image" />
     <div class="card-body">
-      <p class="card-text">Owned by: <i><%= listing.owner.username %></i></p>
+      <p class="card-text">Owned by: @<i><%= listing.owner.username %></i></p>
       <p class="card-text"><%= listing.description %></p>
       <p class="card-text">&#8377; <%= listing.price ? Number(listing.price).toLocaleString("en-IN") : "0" %> / night</p>
       <p class="card-text"><%= listing.location %></p>
@@ -88,44 +88,7 @@
   </div>
 </div>
 
-<!-- <script>
-  // Use the listing's coordinates from MongoDB (GeoJSON format: [longitude, latitude])
-  // Leaflet requires coordinates in [latitude, longitude]
-  var lat = <%= listing.geometry?.coordinates?.[1] || 0 %>;
-  var lng = <%= listing.geometry?.coordinates?.[0] || 0 %>;
 
-  // Initialize the map
-  var map = L.map('map').setView([lat, lng], 12);
-
-  // Add OpenStreetMap tiles
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
-  // Add marker
-  L.marker([lat, lng]).addTo(map)
-    .bindPopup("<b><%= listing.title %></b><br><%= listing.location %>")
-    .openPopup();
-</script> -->
-<!-- <script>
-  // Use the listing's coordinates from MongoDB (GeoJSON format: [longitude, latitude])
-  // Leaflet requires coordinates in [latitude, longitude], so we need to swap them.
-  var lat = <%= (listing.geometry && listing.geometry.coordinates && listing.geometry.coordinates[1]) ? listing.geometry.coordinates[1] : 0 %>;
-  var lng = <%= (listing.geometry && listing.geometry.coordinates && listing.geometry.coordinates[0]) ? listing.geometry.coordinates[0] : 0 %>;
-
-  // Initialize the map
-  var map = L.map('map').setView([lat, lng], 12);
-
-  // Add OpenStreetMap tiles
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
-  // Add marker
-  L.marker([lat, lng]).addTo(map)
-    .bindPopup("<b><%= listing.title %></b><br><%= listing.location %>")
-    .openPopup();
-</script> -->
 <script>
   // Use the listing's coordinates from MongoDB
   var lat = <%= (listing.geometry && listing.geometry.coordinates) ? listing.geometry.coordinates[1] : 0 %>;
