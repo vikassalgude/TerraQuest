@@ -94,6 +94,7 @@ app.use((req,res,next)=>{
   res.locals.success=req.flash("success");
   res.locals.error=req.flash("error");
   res.locals.currUser = req.user;
+  // This is a new comment to force an update!
   next();
 })
 // app.get('/demouser',async(req,res)=>{
