@@ -111,6 +111,10 @@ module.exports.createListing = async (req, res) => {
           q: data.location,
           format: "json",
           limit: 1
+        },
+        // *** THE FIX: ADDING THE USER-AGENT HEADER ***
+        headers:{
+          'User-Agent': 'TerraQuestApp/1.0 (contact@myportfolio.com)'
         }
       });
 
