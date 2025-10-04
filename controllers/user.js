@@ -15,7 +15,7 @@ module.exports.signup= async (req, res, next) => {
 
     req.login(registerUser, (err) => {
       if (err) return next(err);
-      req.flash("success", "Welcome to Wanderlust");
+      req.flash("success", "Welcome to Terraquest");
       res.redirect('/listings');
     });
   } catch (e) {
@@ -29,7 +29,7 @@ module.exports.renderLoginForm=(req,res) => {
 };
 
 module.exports.login=async(req,res) => {
-    req.flash("success", "Welcome to Wanderlust. You are logged in");
+    req.flash("success", "Welcome to Terraquest. You are logged in");
     const redirectUrl = res.locals.redirectUrl || '/listings';
     res.redirect(redirectUrl);
   }
