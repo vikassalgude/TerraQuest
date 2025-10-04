@@ -172,6 +172,11 @@ module.exports.updateListing = async (req, res) => {
           q: data.location,
           format: "json",
           limit: 1
+        },
+         headers: {
+          // *** CRITICAL: Change this to a unique identifier for your app ***
+          // Example: 'YourAppName/1.0 (YourContactEmail@example.com)'
+          'User-Agent': 'TerraQuestApp/1.0 (contact@myportfolio.com)'
         }
       });
 
